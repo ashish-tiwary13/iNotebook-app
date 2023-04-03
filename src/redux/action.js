@@ -19,12 +19,12 @@ export const login = (loginData) => {
       if(json.authToken){
         await AsyncStorage.setItem('authToken',json.authToken);
         await AsyncStorage.setItem("username",json.username);
+        await AsyncStorage.setItem("emailId",json.emailId);
         await AsyncStorage.setItem('status',"success");
       }else{
         await AsyncStorage.setItem('status',"failed");
         console.log(json.error)
       }
-      // console.log(json);
       dispatch({ type: "LOGIN", payload: json });
     } catch (err) {
       console.log(err);
@@ -49,6 +49,7 @@ export const signUp = (credentials) => {
         if(json.authToken){
         await AsyncStorage.setItem('authToken',json.authToken);
         await AsyncStorage.setItem("username",json.username);
+        await AsyncStorage.setItem("emailId",json.emailId);
         await AsyncStorage.setItem('status',"success");
       }else{
         await AsyncStorage.setItem('status',"failed");
@@ -66,8 +67,6 @@ export const signUp = (credentials) => {
 };
 
 
-// // const notesInitial = [];
-// const [notes, setNotes] = useState([]);
 
 //    Get all Note
 export const getNotes = () => {
@@ -80,14 +79,11 @@ export const getNotes = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyNTU0NDhjNzk2ZmIyZjNkYTM3ZTI2In0sImlhdCI6MTY4MDE3OTQ5Nn0.rkIXNi0ZLq7rdJctizG_P--H4Ue8urvhTaJxJKjeMp4",
           "auth-token": authToken,
         },
       });
       const json = await response.json();
       console.log("success");
-      // console.log(json);
-      // setNotes(json);
       dispatch({ type: "GETNOTES", payload: json });
     } catch (err) {
       console.log("err");
@@ -113,7 +109,6 @@ export const addNote =  (credentials) => {
     body: JSON.stringify({ title, description, tag }),
   });
   const json = response.json();
-  // setNotes(notes.concat(json));
   dispatch({ type: "ADDNOTE", payload: json });
     } catch (err) {
       console.log(err);
@@ -168,8 +163,6 @@ export const editNote =  (credentials) => {
   });
   // eslint-disable-next-line
   const json = response.json();
-  // console.log(json)
-  // Logic to edit in client
   for (let i = 0; i < notes.length; i++) {
     const element = notes[i];
     if (element._id === id) {

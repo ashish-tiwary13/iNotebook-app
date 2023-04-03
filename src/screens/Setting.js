@@ -64,6 +64,10 @@ useEffect(() => {
     let status = await AsyncStorage.getItem("status");
     if(status=="success"){
       setEmailId(myState.emailId)
+      if(myState.emailId==undefined){
+        setEmailId(await AsyncStorage.getItem("username"));
+        setUsername(await AsyncStorage.getItem("username"));
+      }
       setUsername(myState.username);
     }else{
       navigation.navigate("Login");

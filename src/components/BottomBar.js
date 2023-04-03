@@ -4,9 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import Home from '../../assets/icons/homeOrg.png' 
 import Find from '../../assets/icons/searchOrg.png' 
 import Settings from '../../assets/icons/settingsOrg.png' 
-import Chat from '../../assets/icons/chatOrg.png' 
+import Feedback from '../../assets/icons/chatOrg.png' 
 import Add from '../../assets/icons/addCol.png' 
-import Done from '../../assets/icons/done.png' 
+import Share from '../../assets/icons/share.png' 
 
 
 // color= #f1735b
@@ -14,7 +14,6 @@ import Done from '../../assets/icons/done.png'
 
 const BottomBar = () => {
     const navigation = useNavigation();
-    // const [changeImg, setChangeImg] = useState("Add")
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -24,7 +23,6 @@ const BottomBar = () => {
 
     const press=()=>{
       navigation.navigate("AddNote");
-      // setChangeImg("Done");
     }
   return (
     <View className="justify-center flex-row align-middle px-20" style={styles.container}>
@@ -32,21 +30,20 @@ const BottomBar = () => {
           <Image source={Home} style={styles.img}/>
           <Text style={styles.title}>HOME</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="justify-center"  style={{width:"33%"}} >
-          <Image source={Find} style={styles.img}/>
-          <Text style={styles.title}>FIND</Text>
+        <TouchableOpacity className="justify-center"  style={{width:"35%"}} >
+          <Image source={Feedback} style={styles.img}/>
+          <Text style={styles.title}>FEEDBACK</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{margin:"2%"}} onPress={press}>
           <Image source={Add} style={styles.add}/>
         </TouchableOpacity>
-        {/* <View style={{width:"10%"}}></View> */}
         <TouchableOpacity className="justify-center"  style={{width:"33%"}} onPress={()=>navigation.navigate("Setting")}>
           <Image source={Settings} style={styles.img}/>
           <Text style={styles.title}>SETTINGS</Text>
         </TouchableOpacity>
         <TouchableOpacity className="justify-center"  style={{width:"33%"}} >
-          <Image source={Chat} style={styles.img}/>
-          <Text style={styles.title}>CHAT</Text>
+          <Image source={Share} style={styles.img}/>
+          <Text style={styles.title}>SHARE</Text>
         </TouchableOpacity>
     </View>
   )
@@ -74,7 +71,7 @@ const styles = StyleSheet.create({
     },  
     img:{
         height:undefined,
-        width:"40%",
+        width: 24,
         aspectRatio:1,
         alignSelf:"center"
     },
