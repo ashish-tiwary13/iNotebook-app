@@ -42,17 +42,66 @@ const Home = () => {
   const myState = useSelector((state) => state.loginSignup);
   const myNotes= useSelector((state) => state.notes);
   const dispatch = useDispatch();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [username, setUsername] = useState("");
   const isFocused = useIsFocused();
+  const [toggle, setToggle] = useState(null);
+  const [tags, setTags] = useState([
+    {
+      id: "",
+      tag: "",
+    }
+  ]);
+  const [notes, setNotes] = useState([
+    {
+      id: "",
+      title: "",
+      description: "",
+      tag: "",
+    }
+  ]);
+
+  useEffect(() => {
+    //tags
+    const unique=[];
+    if(myNotes.length!==undefined){
+      console.log(myNotes.length)
+    const filter = myNotes.filter (item =>{
+      if(item.tag==""){
+        return false;
+      }
+      const isDuplicate = unique.includes(item.tag);
+      if(!isDuplicate){
+        unique.push(item.tag);
+        return true;
+      }
+      return false;
+      })
+      setTags(filter);
+      console.log("filter " + unique);
+    }
+
+
+    //notes
+    if(toggle!==null){
+      setNotes([]);
+    const filterNotes = myNotes.filter (item =>{
+      if(item.tag==toggle){
+        return true;
+      }
+      return false;
+      })
+      setNotes(filterNotes);
+    }else{
+      setNotes(myNotes);
+    }
+  },[myNotes,toggle])
 
 
   useEffect(() => {
     let data = async() =>{
       let status = await AsyncStorage.getItem("status");
       if(status=="success"){
-        await AsyncStorage.setItem("username",myState.username);
-        setUsername(myState.username);
+        await AsyncStorage.getItem("username").then((value) => setUsername(value));
         dispatch(getNotes());
       }else{
         navigation.navigate("Login");
@@ -63,10 +112,8 @@ const Home = () => {
   
 
   const handleCardPress = (item) => {
-    navigation.navigate("View", {itemId:item._id, titleProp:item.title, descriptionProp:item.description, tagProp:item.tag}); 
+    navigation.navigate("View", {itemId:item._id, titleProp:item.title, descriptionProp:item.description, tagProp:item.tag, dateProp:item.date}); 
   };
-
-
 
 //fonts
   let [fontsLoaded] = useFonts({
@@ -84,11 +131,6 @@ const Home = () => {
     Roboto_900Black_Italic,
   });
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-
   console.log("myState " + myState.authToken);
 
   useLayoutEffect(() => {
@@ -96,22 +138,6 @@ const Home = () => {
       headerShown: false,
     });
   }, []);
-
-  const card = (
-    <View className="my-4" style={styles.cardContainer}>
-      <View className="" style={styles.card}>
-        <Text className="text-xl" style={styles.cardText}>
-          title
-        </Text>
-        <Text className="text-lg" style={styles.cardText}>
-          description
-        </Text>
-        <Text className="text-sm" style={styles.cardText}>
-          #tag
-        </Text>
-      </View>
-    </View>
-  );
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -131,28 +157,24 @@ const Home = () => {
           <Text className="" style={{marginHorizontal:"3%",fontFamily: 'Roboto_500Medium',fontSize:70}}>your</Text>
           <View className="flex-row justify-start" style={{marginHorizontal:"3%"}}>
             <Text className="" style={{marginHorizontal:"3%",fontFamily: 'Roboto_500Medium',fontSize:70 , marginLeft:50}}>notes</Text>
-            <Text className="align-bottom" style={{fontFamily: 'Roboto_500Medium',fontSize:50 , marginLeft:50,color:"white"}}>/14</Text>
+            <Text className="align-bottom" style={{fontFamily: 'Roboto_500Medium',fontSize:50 , marginLeft:50,color:"white"}}>/{myNotes.length}</Text>
           </View>
           <View style={{height:100,width:"100%"}}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row" style={{marginTop:"5%",maxHeight:48}}>
-            <View style={{marginHorizontal:5,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,}}>
-              <Text style={{fontSize:20}}>#personal</Text>
-            </View>
-            <View style={{marginHorizontal:5,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,}}>
-              <Text style={{fontSize:20}}>#personal</Text>
-            </View>
-            <View style={{marginHorizontal:5,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,}}>
-              <Text style={{fontSize:20}}>#personal</Text>
-            </View>
-            <View style={{marginHorizontal:5,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,}}>
-              <Text style={{fontSize:20}}>#personal</Text>
-            </View>
-            <View style={{marginHorizontal:5,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,}}>
-              <Text style={{fontSize:20}}>#personal</Text>
-            </View>
-            <View style={{marginHorizontal:5,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,}}>
-              <Text style={{fontSize:20}}>#personal</Text>
-            </View>
+            {myNotes && (
+              <FlatList scrollEnabled horizontal data={tags} keyExtractor={(item) => item.id} renderItem={({ item }) => (
+                <TouchableOpacity onPress={()=>{
+                  if(toggle!==`${item.tag}`){
+                  setToggle(item.tag);
+                  }else{
+                    setToggle(null);
+                  }
+                  console.log("toggle " + toggle);
+                }} style={{marginHorizontal:15,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,backgroundColor:`${toggle!==`${item.tag}`?"#8accb4":"white"}`}}>
+                  <Text style={{fontSize:20}}>{item.tag}</Text>
+                </TouchableOpacity>
+              )} />
+            )}
           </ScrollView>
           </View>
           <View className="border-b-2 border-black mx-5" style={{marginBottom:"2%"}} ></View>
@@ -160,12 +182,12 @@ const Home = () => {
           {/* {card} */}
           {myNotes && (
             <FlatList
-              data={myNotes}
+              data={notes}
               keyExtractor={(item) => item._id}
               renderItem={({ item }) => (
                 <TouchableOpacity className="my-4" style={styles.cardContainer} onPress={()=>handleCardPress(item)}>
                   <View className="" style={styles.card}>
-                    <Text className="text-xl" style={styles.cardText}>
+                    <Text className="text-2xl" style={styles.cardText}>
                       {item.title}
                     </Text>
                     <Text className="text-lg" style={styles.cardText}>
@@ -224,10 +246,3 @@ const styles = StyleSheet.create({
 
 export default Home;
 
-{
-  /* <Text className="flex-row justify-center">{myState.authToken}</Text> */
-}
-{
-  /* <Button title="Login" onPress={()=>{ dispatch(login({email:"himoo@gmail.com",password:"himoo"}))}}/>
-<Button title="SignUp" onPress={()=>{ dispatch(signUp({name:"alok",email:"alok1@gmail.com",password:"alokk",Rpassword:"alokk"}))}}/> */
-}

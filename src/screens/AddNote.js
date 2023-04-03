@@ -16,8 +16,15 @@ const AddNote = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tag, setTag] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let finalDate = day + "/" + month + "/" + year;
+    setDate(finalDate);
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
       setKeyboardStatus(false);
     });
@@ -66,7 +73,7 @@ const AddNote = () => {
       <View className="border-b-2 border-black mx-5" style={{marginTop:"5%"}} ></View>
       <View className="flex-row justify-between">
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>18/11/22</Text>
+            <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>{date}</Text>
         </TouchableOpacity>
         <TouchableOpacity className="mx-6" onPress={() => navigation.navigate("Home")}>
             <TextInput style={{fontSize: 20, marginLeft: 20, marginTop: 20}} placeholder="#tag" onChangeText={newText => setTag(newText)}></TextInput>

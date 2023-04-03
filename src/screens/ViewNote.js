@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editNote,getNotes,deleteNote } from "../redux/action";
 
 const ViewNote = ({ route }) => {
-  const { itemId,titleProp,descriptionProp, tagProp} = route.params;
+  const { itemId,titleProp,descriptionProp, tagProp, dateProp} = route.params;
 //   console.log(itemId);
 
   const navigation = useNavigation();
@@ -22,6 +22,18 @@ const ViewNote = ({ route }) => {
   const [editTitle,setEditTitle]= useState(titleProp);
   const [editDes,setEditDes]= useState(descriptionProp);
   const [editTag,setEditTag]= useState(tagProp);
+  const [date,setDate]= useState(dateProp);
+
+
+  useEffect(() => {
+    console.log(dateProp)
+    // 2023-03-30T21:26:37.053Z
+    let year = dateProp.substring(0,4);
+    let month = dateProp.substring(5,7);
+    let day = dateProp.substring(8,10);
+    let finalDate = day + "/" + month + "/" + year;
+    setDate(finalDate);
+  }, [dateProp]);
 
 
   const deleted = () => {
@@ -88,7 +100,7 @@ const ViewNote = ({ route }) => {
       <View className="border-b-2 border-black mx-5" style={{marginTop:"5%"}} ></View>
       <View className="flex-row justify-between">
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>18/11/22</Text>
+            <Text style={{fontSize: 20, marginLeft: 20, marginTop: 20}}>{date}</Text>
         </TouchableOpacity>
         <TouchableOpacity className="mx-6" onPress={() => navigation.navigate("Home")}>
             <TextInput value={editTag} style={{fontSize: 20, marginLeft: 20, marginTop: 20}} placeholder="#tag" onChangeText={newText => {setTag(newText); setEditTag(newText)}}></TextInput>

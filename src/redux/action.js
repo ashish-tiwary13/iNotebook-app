@@ -18,6 +18,7 @@ export const login = (loginData) => {
       const json = await response.json();
       if(json.authToken){
         await AsyncStorage.setItem('authToken',json.authToken);
+        await AsyncStorage.setItem("username",json.username);
         await AsyncStorage.setItem('status',"success");
       }else{
         await AsyncStorage.setItem('status',"failed");
@@ -47,6 +48,7 @@ export const signUp = (credentials) => {
         console.log("json");
         if(json.authToken){
         await AsyncStorage.setItem('authToken',json.authToken);
+        await AsyncStorage.setItem("username",json.username);
         await AsyncStorage.setItem('status',"success");
       }else{
         await AsyncStorage.setItem('status',"failed");
