@@ -10,7 +10,6 @@ import { editNote,getNotes,deleteNote } from "../redux/action";
 
 const ViewNote = ({ route }) => {
   const { itemId,titleProp,descriptionProp, tagProp, dateProp} = route.params;
-//   console.log(itemId);
 
   const navigation = useNavigation();
   const myNotes = useSelector((state) => state.notes);
@@ -26,7 +25,6 @@ const ViewNote = ({ route }) => {
 
 
   useEffect(() => {
-    console.log(dateProp)
     // 2023-03-30T21:26:37.053Z
     let year = dateProp.substring(0,4);
     let month = dateProp.substring(5,7);
@@ -81,7 +79,6 @@ const ViewNote = ({ route }) => {
     setTimeout(() => {
       dispatch(getNotes());
     }, 500);
-    console.log(title);
     navigation.navigate("Home");
   }
 

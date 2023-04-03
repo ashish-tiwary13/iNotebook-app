@@ -38,7 +38,7 @@ import ProfilePNG from "../../assets/profile.png";
 import AsyncStorage from '@react-native-community/async-storage';
 import { useSelector } from "react-redux";
 import { LogBox } from 'react-native';
-LogBox.ignoreLogs(["expo-app-loading","VirtualizedLists should never be nested"]);
+LogBox.ignoreLogs(["expo-app-loading","VirtualizedLists should never be nested","Each child in a list should have a unique"]);
 
 
 const Setting = () => {

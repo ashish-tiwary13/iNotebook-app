@@ -14,7 +14,7 @@ import ViewNote from "./src/screens/ViewNote";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-  store.subscribe(() => console.log(store.getState()))
+  // store.subscribe(() => console.log(store.getState()))
 
   return (
     <Provider store={store}>

@@ -64,7 +64,6 @@ const Home = () => {
     //tags
     const unique=[];
     if(myNotes.length!==undefined){
-      console.log(myNotes.length)
     const filter = myNotes.filter (item =>{
       if(item.tag==""){
         return false;
@@ -77,7 +76,6 @@ const Home = () => {
       return false;
       })
       setTags(filter);
-      console.log("filter " + unique);
     }
 
 
@@ -131,8 +129,6 @@ const Home = () => {
     Roboto_900Black_Italic,
   });
 
-  console.log("myState " + myState.authToken);
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -169,7 +165,6 @@ const Home = () => {
                   }else{
                     setToggle(null);
                   }
-                  console.log("toggle " + toggle);
                 }} style={{marginHorizontal:15,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,backgroundColor:`${toggle!==`${item.tag}`?"#8accb4":"white"}`}}>
                   <Text style={{fontSize:20}}>{item.tag}</Text>
                 </TouchableOpacity>

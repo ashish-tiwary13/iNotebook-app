@@ -54,7 +54,6 @@ const AddNote = () => {
       tag: tag,
     }));
     dispatch(getNotes());
-    console.log(title);
     navigation.navigate("Home");
   }
 

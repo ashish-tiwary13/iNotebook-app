@@ -45,7 +45,7 @@ export const signUp = (credentials) => {
           body: JSON.stringify({ name, email, password }),
         });
         const json = await response.json();
-        console.log("json");
+        // console.log("json");
         if(json.authToken){
         await AsyncStorage.setItem('authToken',json.authToken);
         await AsyncStorage.setItem("username",json.username);
@@ -54,8 +54,6 @@ export const signUp = (credentials) => {
       }else{
         await AsyncStorage.setItem('status',"failed");
       }
-        console.log(json);
-
         dispatch({ type: "SIGNUP", payload: json });
       }else{
         dispatch({ type: "SIGNUP", payload: {error: "Password and Confirm Password must be same"} });
@@ -70,11 +68,10 @@ export const signUp = (credentials) => {
 
 //    Get all Note
 export const getNotes = () => {
-  console.log("auth ");
   return async (dispatch) => {
     try {
       const authToken = await AsyncStorage.getItem('authToken');
-      // TODO: API Call
+      //  API Call
       const response = await fetch(`${host}/api/note/fetchallnote`, {
         method: "GET",
         headers: {
@@ -83,7 +80,6 @@ export const getNotes = () => {
         },
       });
       const json = await response.json();
-      console.log("success");
       dispatch({ type: "GETNOTES", payload: json });
     } catch (err) {
       console.log("err");
@@ -98,7 +94,7 @@ export const addNote =  (credentials) => {
   return async (dispatch) => {
     try {
       const authToken = await AsyncStorage.getItem('authToken');
-  // TODO: API Call
+  //  API Call
   const response = await fetch(`${host}/api/note/addnote`, {
     method: "POST",
     headers: {
@@ -119,8 +115,7 @@ export const addNote =  (credentials) => {
 
 // Delete a note
 export const deleteNote = ({id}) => {
-  // TODO: API Call
-  console.log("id "+id);
+  // API Call
   return async (dispatch) => {
     try {
       const authToken = await AsyncStorage.getItem('authToken');
@@ -134,7 +129,7 @@ export const deleteNote = ({id}) => {
   });
   // eslint-disable-next-line
   const json = response.json();
-  console.log("deleted "+json)
+  // console.log("deleted "+json)
   //
   const newNotes = notes.filter((note) => {
     return note._id !== id;

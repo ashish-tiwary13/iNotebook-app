@@ -75,10 +75,8 @@ import {
 
         let status = await AsyncStorage.getItem("status");
         if(status=="success"){
-          console.log("success " + status)
           navigation.push("Home");
         }else{
-          console.log("failed "+status)
           if(myState.error){
             setError(myState.error)
           }
