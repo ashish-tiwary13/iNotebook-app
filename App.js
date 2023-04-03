@@ -21,7 +21,7 @@ export default function App() {
     <Provider store={store}>
       <TailwindProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home" screenOptions={{contentStyle:{backgroundColor:"#8accb4"}}} >
+          <Stack.Navigator initialRouteName="Home" screenOptions={{contentStyle:{backgroundColor:"#4c445c"}}} >
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Setting" component={Setting} />

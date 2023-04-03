@@ -22,7 +22,7 @@ const Setting = () => {
 const styles = StyleSheet.create({
     AndroidSafeArea: {
         flex: 1,
-        backgroundColor: "#8accb4",
+        backgroundColor: "#4c445c",
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
       },
 });

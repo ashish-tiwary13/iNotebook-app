@@ -11,6 +11,7 @@ import SharePNG from '../../assets/icons/share.png'
 
 // color= #f1735b
 // color= #8accb4
+// color= #4c445c
 
 const BottomBar = () => {
     const navigation = useNavigation();
@@ -78,7 +79,9 @@ const styles = StyleSheet.create({
   container: {
     height: 80,
     width: "90%",
-    backgroundColor: "white",
+    backgroundColor: "rgb(150, 145, 161)",
+    borderColor: "rgb(223, 216, 214)",
+    borderWidth: 2,
     alignSelf: "center",
     marginBottom:"5%",
     borderRadius: 15,

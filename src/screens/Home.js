@@ -165,7 +165,7 @@ const Home = () => {
                   }else{
                     setToggle(null);
                   }
-                }} style={{marginHorizontal:10,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,backgroundColor:`${toggle!==`${item.tag}`?"#8accb4":"white"}`}}>
+                }} style={{marginHorizontal:10,borderWidth:1,borderColor:"rgb(223, 216, 214)",borderRadius:51,paddingHorizontal:10,paddingVertical:8,backgroundColor:`${toggle!==`${item.tag}`?"#4c445c":"rgb(223, 216, 214)"}`}}>
                   <Text style={{fontSize:20}}>{item.tag}</Text>
                 </TouchableOpacity>
               )} />
@@ -211,7 +211,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   AndroidSafeArea: {
     flex: 1,
-    backgroundColor: "#8accb4",
+    backgroundColor: "#4c445c",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
   cardContainer: {
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(223, 216, 214, 0.2)",
     borderRadius: 10,
     borderColor: "rgb(223, 216, 214)",
-    borderWidth: 2,
+    borderWidth: 1,
     paddingVertical: 7,
   },
   cardText: {
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: "100%",
     width: "100%",
-    backgroundColor:"#8accb4"
+    backgroundColor:"#4c445c"
   },
 });
 
