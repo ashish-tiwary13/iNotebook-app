@@ -54,7 +54,7 @@ const BottomBar = () => {
           <Image source={Home} style={styles.img}/>
           <Text style={styles.title}>HOME</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="justify-center"  style={{width:"35%"}} >
+        <TouchableOpacity className="justify-center"  style={{width:"35%"}} onPress={()=>navigation.navigate("Feedback")}>
           <Image source={Feedback} style={styles.img}/>
           <Text style={styles.title}>FEEDBACK</Text>
         </TouchableOpacity>
@@ -65,7 +65,7 @@ const BottomBar = () => {
           <Image source={Settings} style={styles.img}/>
           <Text style={styles.title}>SETTINGS</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="justify-center" onPress={onShare} style={{width:"33%"}} >
+        <TouchableOpacity className="justify-center" style={{width:"33%"}} onPress={onShare}>
           <Image source={SharePNG} style={styles.img}/>
           <Text style={styles.title}>SHARE</Text>
         </TouchableOpacity>

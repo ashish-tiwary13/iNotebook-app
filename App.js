@@ -10,6 +10,7 @@ import Setting from "./src/screens/Setting";
 import Register from "./src/screens/Register";
 import AddNote from "./src/screens/AddNote";
 import ViewNote from "./src/screens/ViewNote";
+import Feedback from "./src/screens/Feedback";
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Setting" component={Setting} />
+            <Stack.Screen name="Feedback" component={Feedback} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="AddNote" component={AddNote} />
             <Stack.Screen name="View" component={ViewNote} />
