@@ -165,7 +165,7 @@ const Home = () => {
                   }else{
                     setToggle(null);
                   }
-                }} style={{marginHorizontal:15,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,backgroundColor:`${toggle!==`${item.tag}`?"#8accb4":"white"}`}}>
+                }} style={{marginHorizontal:10,borderWidth:2,borderColor:"white",borderRadius:51,paddingHorizontal:10,paddingVertical:8,backgroundColor:`${toggle!==`${item.tag}`?"#8accb4":"white"}`}}>
                   <Text style={{fontSize:20}}>{item.tag}</Text>
                 </TouchableOpacity>
               )} />
