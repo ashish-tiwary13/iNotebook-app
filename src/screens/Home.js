@@ -145,14 +145,14 @@ const Home = () => {
       <ScrollView style={styles.scrollView} >
         <TouchableOpacity className="flex-row justify-start" style={{margin:"2%"}} onPress={()=>dispatch(getNotes())}>
           <Image source={ProfilePNG} style={{width: 40, height: 40, marginHorizontal:10}} />
-          <Text className="text-lg"  >morning, </Text>
-          <Text className="text-xl" style={{ fontFamily: 'Roboto_500Medium'}} >{username}</Text>
+          <Text className="text-lg" style={{color:"#f5f5f5"}} >morning, </Text>
+          <Text className="text-xl" style={{ fontFamily: 'Roboto_500Medium',color:"#f5f5f5"}} >{username}</Text>
         </TouchableOpacity>
         <View className="border-b-2 border-black mx-5" style={{marginVertical:"2%"}} ></View>
         <View className="justify-start" style={{height:"30%"}}>
-          <Text className="" style={{marginHorizontal:"3%",fontFamily: 'Roboto_500Medium',fontSize:70}}>your</Text>
+          <Text className="" style={{marginHorizontal:"3%",fontFamily: 'Roboto_500Medium',fontSize:70,color:"#f5f5f5"}}>your</Text>
           <View className="flex-row justify-start" style={{marginHorizontal:"3%"}}>
-            <Text className="" style={{marginHorizontal:"3%",fontFamily: 'Roboto_500Medium',fontSize:70 , marginLeft:50}}>notes</Text>
+            <Text className="" style={{marginHorizontal:"3%",fontFamily: 'Roboto_500Medium',fontSize:70 , marginLeft:50,color:"#f5f5f5"}}>notes</Text>
             <Text className="align-bottom" style={{fontFamily: 'Roboto_500Medium',fontSize:50 , marginLeft:50,color:"white"}}>/{myNotes.length}</Text>
           </View>
           <View style={{height:100,width:"100%"}}>

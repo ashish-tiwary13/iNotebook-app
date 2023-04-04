@@ -126,32 +126,32 @@ import {
             source={loginJPG}
             style={{ height: undefined, width: "100%", aspectRatio: 1.5,borderRadius:10 }}
           />
-          <Text className="align-middle m-5 my-6" style={styles.profile}>Register</Text>
+          <Text className="align-middle m-5 my-6" style={[styles.profile,{color:"#f5f5f5"}]}>Register</Text>
           <View className="align-middle mx-8 justify-center" style={{ borderRadius:5,height:"5%"}}>
             <View className="flex-row">
               <Image source={namePNG} style={{height:undefined,width:25,aspectRatio:1}}/>
-              <TextInput className="mx-3" placeholder="Name" style={{width:"100%"}} onChangeText={newText => setName(newText)}/>
+              <TextInput className="mx-3" placeholder="Name" placeholderTextColor="#f5f5f5" style={{width:"100%",color:"#f5f5f5"}} onChangeText={newText => setName(newText)}/>
             </View>
             <View className="border-b-2 border-black" ></View>
           </View>
           <View className="align-middle mx-8 my-6 justify-center" style={{ borderRadius:5,height:"5%"}}>
             <View className="flex-row">
               <Image source={emailPNG} style={{height:undefined,width:25,aspectRatio:1}}/>
-              <TextInput className="mx-3"placeholder="Email Address" style={{width:"100%"}} onChangeText={newText => setEmail(newText)}/>
+              <TextInput className="mx-3"placeholder="Email Address" placeholderTextColor="#f5f5f5" style={{width:"100%",color:"#f5f5f5"}} onChangeText={newText => setEmail(newText)}/>
             </View>
             <View className="border-b-2 border-black" ></View>
           </View>
           <View className="align-middle mx-8 justify-center" style={{ borderRadius:5,height:"5%"}}>
             <View className="flex-row">
               <Image source={passwordPNG} style={{height:undefined,width:25,aspectRatio:1}}/>
-              <TextInput className="mx-3" secureTextEntry={true} placeholder="Password"  style={{width:"100%"}} onChangeText={newText => setPassword(newText)}/>
+              <TextInput className="mx-3" secureTextEntry={true} placeholder="Password" placeholderTextColor="#f5f5f5" style={{width:"100%",color:"#f5f5f5"}} onChangeText={newText => setPassword(newText)}/>
             </View>
             <View className="border-b-2 border-black" ></View>
           </View>
           <View className="align-middle mx-8 my-6 justify-center" style={{ borderRadius:5,height:"5%"}}>
             <View className="flex-row">
               <Image source={passwordPNG} style={{height:undefined,width:25,aspectRatio:1}}/>
-              <TextInput className="mx-3" secureTextEntry={true} placeholder="Confirm Password"  style={{width:"100%"}} onChangeText={newText => setConfirmPassword(newText)}/>
+              <TextInput className="mx-3" secureTextEntry={true} placeholder="Confirm Password" placeholderTextColor="#f5f5f5" style={{width:"100%",color:"#f5f5f5"}} onChangeText={newText => setConfirmPassword(newText)}/>
             </View>
             <View className="border-b-2 border-black" ></View>
           </View>

@@ -103,7 +103,7 @@ useEffect(() => {
     return (
       <SafeAreaView style={styles.AndroidSafeArea}>
         <View>
-          <Text style={styles.profile}>Profile</Text>
+          <Text style={[styles.profile,{color:"#f5f5f5"}]}>Profile</Text>
         </View>
         <ScrollView style={styles.ScrollView}>
           <View style={styles.view}>

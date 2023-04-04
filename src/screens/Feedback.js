@@ -88,7 +88,7 @@ const Feedback = () => {
         <View style={{ width: "100%", height: "100%" }}>
           <ScrollView>
             <View>
-              <Text className="align-middle m-5 my-6" style={styles.profile}>
+              <Text className="align-middle m-5 my-6" style={[styles.profile,{color:"#f5f5f5"}]}>
                 Feedback
               </Text>
             </View>
@@ -97,7 +97,8 @@ const Feedback = () => {
               value={name}
                 className="mx-1"
                 placeholder="Name"
-                style={{ width: "100%" }}
+                placeholderTextColor="#f5f5f5"
+                style={{ width: "100%",color:"#f5f5f5" }}
                 onChangeText={(newText) => setName(newText)}
               />
               <View className="border-b-2 border-black"></View>
@@ -107,7 +108,8 @@ const Feedback = () => {
                 value={email}
                 className="mx-1"
                 placeholder="Email"
-                style={{ width: "100%" }}
+                placeholderTextColor="#f5f5f5"
+                style={{ width: "100%",color:"#f5f5f5" }}
                 onChangeText={(newText) => setEmail(newText)}
               />
               <View className="border-b-2 border-black"></View>
@@ -117,7 +119,8 @@ const Feedback = () => {
                 value={subject}
                 className="mx-1"
                 placeholder="Subject"
-                style={{ width: "100%" }}
+                placeholderTextColor="#f5f5f5"
+                style={{ width: "100%",color:"#f5f5f5" }}
                 onChangeText={(newText) => setSubject(newText)}
               />
               <View className="border-b-2 border-black"></View>
@@ -132,8 +135,9 @@ const Feedback = () => {
             >
               <AutoGrowingTextInput
                 value={msg}
-                style={{ fontSize: 15, marginTop: 20,alignSelf:"flex-start",height:"100%",width:"100%" }}
+                style={{ fontSize: 15, marginTop: 20,alignSelf:"flex-start",height:"100%",width:"100%" ,color:"#f5f5f5"}}
                 placeholder={"Type message"}
+                placeholderTextColor="#f5f5f5"
                 onChangeText={(newText) => setMsg(newText)}
               />
               <View className="border-b-2 border-black"></View>
