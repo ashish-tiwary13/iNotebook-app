@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 import BottomBar from "../components/BottomBar";
 import BackPNG from "../../assets/icons/back.png";
 import Done from "../../assets/icons/done.png";
-import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
 import { useDispatch, useSelector } from "react-redux";
 import { addNote,getNotes } from "../redux/action";
 
@@ -83,7 +82,7 @@ const AddNote = () => {
       </View>
       <View >
       <View style={{height:"63%",width:"100%"}}>
-        <AutoGrowingTextInput style={{fontSize: 20, marginHorizontal: 20, marginTop: 20,color:"#f5f5f5"}} placeholderTextColor="#f5f5f5" placeholder={'type message'} onChangeText={newText => setDescription(newText)}/>
+        <TextInput editable multiline style={{fontSize: 20, marginHorizontal: 20, marginTop: 20,color:"#f5f5f5"}} placeholderTextColor="#f5f5f5" placeholder={'type message'} onChangeText={newText => setDescription(newText)}/>
       </View>
       <View style={{width:"100%",height:38}}>
         <TouchableOpacity  className="align-middle my-6 justify-center" style={{width:95,alignSelf:"flex-end" ,borderRadius:45,height:"100%"}} onPress={saveNotes}>

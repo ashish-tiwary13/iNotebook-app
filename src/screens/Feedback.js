@@ -13,7 +13,6 @@ import {
 import React, { useLayoutEffect,useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import BottomBar from "../components/BottomBar";
-import { AutoGrowingTextInput } from "react-native-autogrow-textinput";
 import AppLoading from "expo-app-loading";
 import {
   useFonts,
@@ -114,7 +113,7 @@ const Feedback = () => {
               />
               <View className="border-b-2 border-black"></View>
             </View>
-            <View style={{ marginHorizontal: "5%", marginVertical: "8%" }}>
+            <View style={{ marginHorizontal: "5%", marginTop: "7%" }}>
               <TextInput
                 value={subject}
                 className="mx-1"
@@ -133,7 +132,9 @@ const Feedback = () => {
                 marginVertical: "1%",
               }}
             >
-              <AutoGrowingTextInput
+              <TextInput
+                editable
+                multiline 
                 value={msg}
                 style={{ fontSize: 15, marginTop: 20,alignSelf:"flex-start",height:"100%",width:"100%" ,color:"#f5f5f5"}}
                 placeholder={"Type message"}
@@ -142,7 +143,7 @@ const Feedback = () => {
               />
               <View className="border-b-2 border-black"></View>
             </View>
-            <View style={{height:"30%",marginVertical:"5%"}}>
+            <View style={{height:"30%",marginVertical:"15%"}}>
             <TouchableOpacity onPress={handleOnPress} className="align-middle mx-8 justify-center" style={{ borderRadius:5,height:"27%",backgroundColor:"#f1735b"}}>
                 <Text className="text-center" style={{fontFamily: "Poppins_600SemiBold",color:"white"}}>Register</Text>
             </TouchableOpacity>
