@@ -31,9 +31,9 @@ const BottomBar = () => {
     try {
       const result = await Share.share({
         title: 'Share iNotebook',
-        message: 'iNotebook is a simple note taking app. Download it now from playstore',
+        message: 'iNotebook - the app for all your note-taking needs. Jot down your ideas and stay organized on-the-go! Download it now....  https://i-notebook-app-website-download.vercel.app/',
         subject: 'Share Link', // for email
-        url: 'some share url'
+        url: 'https://i-notebook-app-website-download.vercel.app/'
       });
   
       if (result.action === Share.sharedAction) {

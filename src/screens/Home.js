@@ -139,7 +139,9 @@ const Home = () => {
     return <AppLoading />;
   } else {
   return (
-    <SafeAreaView style={styles.AndroidSafeArea}>
+    <SafeAreaView 
+    // style={styles.AndroidSafeArea}
+    >
     <View style={{height:"100%"}}>
       {/* <Navbar/> */}
       <ScrollView style={styles.scrollView} >

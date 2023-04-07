@@ -109,7 +109,9 @@ const LoginScreen = () => {
     return <AppLoading />;
   } else {
   return (
-    <SafeAreaView style={styles.AndroidSafeArea}>
+    <SafeAreaView 
+    // style={styles.AndroidSafeArea}
+    >
       <View style={{height:"100%"}}>
       <ScrollView style={styles.scrollView}>
       <View className="my-1" style={{ height: "95%", width: "100%" }}>

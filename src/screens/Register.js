@@ -119,7 +119,9 @@ import {
       return <AppLoading />;
     } else {
     return (
-      <SafeAreaView style={styles.AndroidSafeArea}>
+      <SafeAreaView 
+    // style={styles.AndroidSafeArea}
+    >
         <ScrollView  style={{height:"100%"}}>
         <View className="my-1" style={{ height: "100%", width: "100%" }}>
           <Image

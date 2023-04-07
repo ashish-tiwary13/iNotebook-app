@@ -83,7 +83,9 @@ const Feedback = () => {
     return <AppLoading />;
   } else {
     return (
-      <SafeAreaView style={styles.AndroidSafeArea}>
+      <SafeAreaView 
+    // style={styles.AndroidSafeArea}
+    >
         <View style={{ width: "100%", height: "100%" }}>
           <ScrollView>
             <View>

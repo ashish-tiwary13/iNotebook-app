@@ -101,7 +101,9 @@ useEffect(() => {
     return <AppLoading />;
   } else {
     return (
-      <SafeAreaView style={styles.AndroidSafeArea}>
+      <SafeAreaView 
+    // style={styles.AndroidSafeArea}
+    >
         <View>
           <Text style={[styles.profile,{color:"#f5f5f5"}]}>Profile</Text>
         </View>

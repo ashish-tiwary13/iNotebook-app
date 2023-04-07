@@ -84,7 +84,9 @@ const ViewNote = ({ route }) => {
 
 
   return (
-    <SafeAreaView style={styles.AndroidSafeArea}>
+    <SafeAreaView 
+    // style={styles.AndroidSafeArea}
+    >
       <View className="flex-row justify-between">
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <Image source={BackPNG} style={{width: 30, height: 30, marginLeft: 20, marginTop: 20}}/>
