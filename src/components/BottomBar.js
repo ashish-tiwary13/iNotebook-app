@@ -7,6 +7,11 @@ import Settings from '../../assets/icons/settingsOrg.png'
 import Feedback from '../../assets/icons/chatOrg.png' 
 import Add from '../../assets/icons/addCol.png' 
 import SharePNG from '../../assets/icons/share.png' 
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 
 // color= #f1735b
@@ -14,17 +19,16 @@ import SharePNG from '../../assets/icons/share.png'
 // color= #4c445c
 
 const BottomBar = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-          headerShown: false,
-        });
-      }, []);
-
-    const press=()=>{
-      navigation.navigate("AddNote");
-    }
+  useLayoutEffect(() => {
+       navigation.setOptions({
+         headerShown: false,
+       });
+     }, []);
+   const press=()=>{
+     navigation.navigate("AddNote");
+   }
 
     // Share
   const onShare = async () => {
@@ -55,14 +59,14 @@ const BottomBar = () => {
           <Image source={Home} style={styles.img}/>
           <Text style={styles.title}>HOME</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="justify-center"  style={{width:"35%"}} onPress={()=>navigation.navigate("Feedback")}>
+        <TouchableOpacity className="justify-center"  style={{width:"40%"}} onPress={()=>navigation.navigate("Feedback")}>
           <Image source={Feedback} style={styles.img}/>
           <Text style={styles.title}>FEEDBACK</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{margin:"2%"}} onPress={press}>
+        <TouchableOpacity style={{margin:"0%",alignSelf:"center",justifyContent:"center",width:"40%"}} onPress={press}>
           <Image source={Add} style={styles.add}/>
         </TouchableOpacity>
-        <TouchableOpacity className="justify-center"  style={{width:"33%"}} onPress={()=>navigation.navigate("Setting")}>
+        <TouchableOpacity className="justify-center"  style={{width:"45%"}} onPress={()=>navigation.navigate("Setting")}>
           <Image source={Settings} style={styles.img}/>
           <Text style={styles.title}>SETTINGS</Text>
         </TouchableOpacity>
@@ -77,8 +81,9 @@ const BottomBar = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: "5%",
     height: 80,
-    width: "90%",
+    width: "91%",
     backgroundColor: "rgb(150, 145, 161)",
     borderColor: "rgb(223, 216, 214)",
     borderWidth: 2,
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
     },
     add: {
       height:undefined,
-      width:70,
+      width: "100%",
       aspectRatio:1,
       position: "relative",
       bottom: "55%",
@@ -102,7 +107,8 @@ const styles = StyleSheet.create({
       alignSelf:"center"
     },
     title:{
-      fontSize:12,
+      // fontSize:12,
+      fontSize:responsiveWidth(3),
       alignSelf:"center"
     }
   })

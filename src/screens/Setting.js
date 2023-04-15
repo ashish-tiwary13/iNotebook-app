@@ -104,6 +104,7 @@ useEffect(() => {
       <SafeAreaView 
     // style={styles.AndroidSafeArea}
     >
+      <View style={{height:"100%"}}>
         <View>
           <Text style={[styles.profile,{color:"#f5f5f5"}]}>Profile</Text>
         </View>
@@ -142,6 +143,7 @@ useEffect(() => {
           </View>
         </ScrollView>
         <BottomBar/>
+        </View>
       </SafeAreaView>
     );
   }

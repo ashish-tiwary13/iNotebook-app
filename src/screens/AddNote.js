@@ -62,6 +62,7 @@ const AddNote = () => {
     <SafeAreaView 
     // style={styles.AndroidSafeArea}
     >
+    <View style={{height:"100%"}}>
       <View className="flex-row justify-between">
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <Image source={BackPNG} style={{width: 30, height: 30, marginLeft: 20, marginTop: 20}}/>
@@ -97,6 +98,7 @@ const AddNote = () => {
       {KeyboardStatus &&
       <BottomBar/>
       }
+    </View>
     </SafeAreaView>
   );
 };
